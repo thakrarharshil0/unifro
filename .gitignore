@@ -43,17 +43,5 @@ next-env.d.ts
 # public folder
 /public-new
 /public1
-/public/assets/events-bg-video.mp4
-/public/assets/execution-process-bg.mp4
-/public/assets/freepik__aerial-view-of-a-cityscape-featuring-tall-building__66635.mp4
-/public/assets/home-video.mp4
-/public/assets/leadership-bg.mp4
-/public/assets/logo.mp4
-/public/assets/our-projects-bg.mp4
-/public/assets/post-tensioning-bg.mp4
-/public/assets/primere welcome.mp4
-/public/assets/project-reach-bg-video.mp4
-/public/assets/testimonials-bg-video.mp4
-/public/assets/unbonded-1.mp4
-/public/assets/whowearevideo.mp4
+
 
