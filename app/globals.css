@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Default cursor everywhere */
+html,
+body {
+  cursor: default;
+}
+img,video{
+  cursor: none;
+}
+
+.banner-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+}
+
+
+/* Custom Cursor Styles */
+.custom-cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  will-change: transform;
+  transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              height 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              border 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 0 4px rgba(0, 157, 173, 0.5);
+}
+
+.custom-cursor-dot.dot-hover {
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  border: 2px solid rgba(0, 157, 173, 0.8);
+  box-shadow: none;
+}
+
+.custom-cursor-circle {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  left: 0;
+  top: 0;
+  will-change: transform;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cursor-image {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+  backdrop-filter: blur(2px);
+}
+
+.cursor-video {
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(4px);
+  box-shadow: none;
+}
+
+.cursor-transparent {
+  border: 2px solid rgba(0, 157, 173, 0.15);
+  background-color: rgba(0, 255, 255, 1);
+  mix-blend-mode: screen;
+  opacity: 0.8;
+}
+
+.cursor-play-video {
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  background-color: transparent;
+  backdrop-filter: blur(4px);
+}
+
+.cursor-play-text {
+  color: black;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+}
+
+.cursor-play-video-text {
+  color: white;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  width: 100%;
+}
+
+/* Hide default cursor when hovering over images, videos, and transparent elements */
+img:hover,
+video:hover,
+[data-cursor="image"]:hover,
+[data-cursor="video"]:hover,
+[data-cursor="transparent"]:hover,
+[data-cursor="play-video"]:hover {
+  cursor: none !important;
+}
+
+
+/* Hide custom cursor elements on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor-dot,
+  .custom-cursor-circle {
+    display: none;
+  }
+}
+
+@keyframes infiniteScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes tickerScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes wallMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(-200px); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.nav-link {
+  position: relative;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 14px 18px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+/* ================= UNDERLINE ================= */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  width: 25px;
+  height: 3px;
+  background: #ffffff;
+  border-radius: 2px;
+  transform: translateX(-50%) scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+/* hover + active */
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+
+@keyframes pulseOuter {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  30% {
+    transform: scale(1.12);
+    opacity: 0.9;
+  }
+  60% {
+    transform: scale(0.98);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+@keyframes pulseInner {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.05);
+  }
+  60% {
+    transform: scale(0.97);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse-outer {
+  animation: pulseOuter 2.4s ease-in-out infinite;
+}
+
+.pulse-inner {
+  animation: pulseInner 2.4s ease-in-out infinite;
+}
+
+
+@keyframes slideBanner {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-slideBanner {
+  animation: slideBanner 28s linear infinite;
+}
+
+  @keyframes tickerScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-tickerScroll {
+    animation: tickerScroll 25s linear infinite;
+  }
+
+/* Client Logos Slider Animations */
+@keyframes scroll-ltr {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-rtl {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.track-ltr {
+  animation: scroll-ltr 280s linear infinite;
+}
+
+.track-rtl {
+  animation: scroll-rtl 280s linear infinite;
+}
+
+.clients-track:hover {
+  animation-play-state: paused;
+}
+
+
+
+    @keyframes gradientRotate {
+      0% { background-position: 0% 50%; }
+      25% { background-position: 50% 0%; }
+      50% { background-position: 100% 50%; }
+      75% { background-position: 50% 100%; }
+      100% { background-position: 0% 50%; }
+    }
+    .animate-gradient {
+      background: linear-gradient(45deg, white 0%, rgba(135, 206, 235, 0.3) 25%, white 50%, rgba(135, 206, 235, 0.3) 75%, white 100%);
+      background-size: 400% 400%;
+      animation: gradientRotate 20s ease-in-out infinite;
+    }
+
+/* Custom Scrollbar for Mobile Filters */
+@media (max-width: 768px) {
+  .mobile-filters-scrollbar {
+    overflow-x: scroll !important;
+    display: flex !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: auto; /* Changed to auto for better visibility */
+    scrollbar-color: #0095AA #f1f5f9;
+  }
+
+  /* Ensure scrollbar is always visible on webkit browsers (iOS/Chrome Android) */
+  .mobile-filters-scrollbar::-webkit-scrollbar {
+    height: 12px !important;
+    display: block !important;
+  }
+
+  .mobile-filters-scrollbar::-webkit-scrollbar-track {
+    background: #e2e8f0 !important;
+    border-radius: 10px;
+  }
+
+  .mobile-filters-scrollbar::-webkit-scrollbar-thumb {
+    background: #0095AA !important;
+    border-radius: 10px;
+    border: 2px solid #e2e8f0;
+    min-width: 60px;
+  }
+}

@@ -1,0 +1,174 @@
+/* ============================================
+   OUR CLIENTS SECTION
+   ============================================ */
+
+.our-clients-section {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+.our-clients-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+/* Title */
+.our-clients-title {
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: #1a2a5e;
+  margin: 0 0 50px 0;
+  text-align: center;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* Slider Container */
+.clients-slider-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Client Rows */
+.clients-row {
+  overflow: hidden;
+  padding: 15px 0;
+}
+
+.row-2 {
+  margin-left: -100px; /* Offset for half image effect */
+}
+
+/* Track Animations */
+.clients-track {
+  display: flex;
+  gap: 40px;
+  width: fit-content;
+}
+
+.track-ltr {
+  animation: scrollLeftToRight 180s linear infinite;
+}
+
+.track-rtl {
+  animation: scrollRightToLeft 180s linear infinite;
+}
+
+@keyframes scrollLeftToRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRightToLeft {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Pause only the hovered row */
+.clients-row:hover .clients-track {
+  animation-play-state: paused;
+}
+
+/* Logo Wrapper */
+.client-logo-wrapper {
+  flex-shrink: 0;
+  width: 180px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.client-logo-wrapper:hover {
+  background: #e8e8e8;
+  transform: scale(1.05);
+}
+
+/* Logo Image - Color */
+.client-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(0%);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.client-logo-wrapper:hover .client-logo {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .our-clients-container {
+    padding: 0 40px;
+  }
+
+  .our-clients-title {
+    font-size: 40px;
+  }
+
+  .client-logo-wrapper {
+    width: 150px;
+    height: 80px;
+    padding: 15px;
+  }
+
+  .row-2 {
+    margin-left: -75px;
+  }
+}
+
+@media (max-width: 768px) {
+  .our-clients-section {
+    padding: 60px 0;
+  }
+
+  .our-clients-container {
+    padding: 0 20px;
+  }
+
+  .our-clients-title {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+
+  .client-logo-wrapper {
+    width: 120px;
+    height: 70px;
+    padding: 12px;
+  }
+
+  .clients-track {
+    gap: 25px;
+  }
+
+  .row-2 {
+    margin-left: -60px;
+  }
+
+  .track-ltr,
+  .track-rtl {
+    animation-duration: 120s;
+  }
+}
+
