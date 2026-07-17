@@ -43,5 +43,5 @@ next-env.d.ts
 # public folder
 /public-new
 /public1
-
-/public/assets
+*.mp4
+*.pdf
