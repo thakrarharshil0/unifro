@@ -192,7 +192,7 @@ export default function ContactPage() {
   const cities = [
     {
       name: "Hyderabad",
-      address: "Pramukh Residency, 5th Floor, Plot No.38, D.V. Colony, Minister Road, Hyderabad, Telangana - 500003",
+      address: "301, 3rd floor, Masetty Plaza, 1-8-206, Prenderghast Road, Secunderabad, Telangana-500003",
     },
     {
       name: "Vadodara",
